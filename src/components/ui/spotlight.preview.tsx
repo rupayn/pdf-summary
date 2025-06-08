@@ -31,9 +31,13 @@ export function SpotlightPreview() {
           A Next.js app for generating PDF summaries with modern web technologies and libraries. Includes a spotlight animation effect and a user-friendly interface. Scalable and maintainable.
 
         </p>
-
-        <div className=" flex items-center justify-center px-auto mt-5">
-          {session.status!=='loading' ?<Button onClick={()=>session.status==='unauthenticated'?signIn():router.push('/summary')} value={session.status==='unauthenticated'?'Click to Log in':"Get Summary"}/>:<Button value={'Loading...'}/>}
+        <div className="w-full flex justify-center items-center">
+          <div className={`flex ${session.status==='unauthenticated'?'hidden':''} items-center justify-center px-auto mt-5`}>
+            {session.status!=='loading' ?<Button onClick={()=>session.status==='unauthenticated'?signIn():router.push('/summary')} value={session.status==='unauthenticated'?'Click to Log in':"Get Summary"}/>:<Button value={'Loading...'}/>}
+          </div>
+          <div className="ml-5 flex items-center justify-center px-auto mt-5">
+            {session.status!=='loading' ?<Button onClick={()=>session.status==='unauthenticated'?signIn():router.push('/upload')} value={session.status==='unauthenticated'?'Click to Log in':"upload"}/>:<Button value={'Loading...'}/>}
+          </div>
         </div>
       </div>
     </div>

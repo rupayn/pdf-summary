@@ -21,6 +21,16 @@ model User {
   name String?
   image String?
   createdAt DateTime 
-  
+  pdf_id String?
+  pdf String?
 
+  chats Chats[]
+}
+
+model Chats {
+  id Int @id @default(autoincrement())
+  content String
+  role String 
+  userId Int
+  user User @relation(fields: [userId],references: [id])
 }
